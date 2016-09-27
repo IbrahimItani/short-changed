@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Adrian's MacBook</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/finder.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/chrome.css">
+    <link rel="stylesheet" type="text/css" href="css/terminal.css">
+    <link rel="stylesheet" type="text/css" href="css/imessage.css">
+    <link rel="stylesheet" type="text/css" href="css/trashcan.css">
+    <link rel="stylesheet" type="text/css" href="css/textfile.css">
+    <link rel="stylesheet" type="text/css" href="css/facetime.css">
+    <link rel="stylesheet" type="text/css" href="css/photobooth.css">
+
+
+    <link rel="stylesheet" href="css/jquery-ui.css">
+
+
+</head>
+<body>
+  <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200' rel='stylesheet' type='text/css'>
+
+<div class="header">
+    <ul class="menu-barr iconns">
+
+      <li style="margin-left: -1184px;">
+        <a href="#">
+          <img onmousedown="this.src='images/a2.png'" onmouseout="this.src='images/a.png'" onmouseup="this.src='images/a.png'" src="images/a.png">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="iconn bluetooth"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="iconn wifi"></i>
+        </a>
+      </li>
+      <li>
+        <a style="text-decoration: none;" href="#" id="clock">8:12 PM</a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="iconn volume"></i>
+        </a>
+      </li>
+      <li id="spotlight">
+        <a href="#">
+          <i class="iconn spotlight"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="iconn notification"></i>
+        </a>
+      </li>
+    </ul>
+  </div><!--/.container.header -->
+
+  <div class="spotlight-search">
+    <div class="input">
+      <div class="loading-wrapper">
+        <div style="margin-left: 3px;" class="loading">
+          <img src="images/loading.gif">
+        </div>
+      </div>
+      <input type="search" id="search" />
+      <span>Spotlight</span>
+    </div><!--/.input -->
+    <div class="results">
+      <ul class="section no-preview">
+        <li>
+          <a onclick="openFinder()" id="openFinder" href="#">
+            <span >Show All in Finder</span>
+            <div class="result"></div>
+          </a>
+        </li>
+      </ul>
+      <ul class="section lbl images top-hit">
+        <li>
+                <a href="#">
+                    <span>me-and-sloan-summer15</span>
+                    <div style="left: 245px;" class="result image">
+                        <img src="images/finderpic1.jpg" />
+                    </div>
+                </a>
+        </li>
+      </ul>
+      <ul class="section lbl images">
+            <li>
+                <a href="#">
+                    <span>IMG 434</span>
+                    <div style="left: 245px;" class="result image">
+                        <img style="border: none;" src="images/finderpic2.png" />
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>Photo on 2015-02-22 at 10.46 PM</span>
+                    <div style="left: 245px;" class="result image">
+                        <img style="border: none;" src="images/finderpic3.png" />
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <ul onclick="openDownloadsFolderSearchBar()" id="downloadsFolder1" class="section lbl folders">
+            <li>
+                <a href="#">
+                    <span>Downloads</span>
+                </a>
+            </li>
+        </ul>
+        
+        <ul class="section no-preview">
+            <li>
+                <a href="#">
+                    <span>Spotlight Preferences...</span>
+                    <div class="result"></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+
+<div style="display: none; height: 200px; margin-left: 200px; margin-top:100px; margin-bottom:150px;" id="pdfView">
+ </div>
+
+
+    <div id='finder'>
+  <div id='toolbar'>
+    <div id='traffic-light'>
+      <div onclick="closeFinder();" id='red'></div>
+      <div id='yellow'></div>
+      <div id='green'></div>
+    </div>
+    <div id='windowname'>
+      <span id='iconFolder'></span>
+      All My Files
+    </div>
+    <div id='actions'>
+      <div onclick='finderBack()' id='back'></div>
+      <div id='next'></div>
+      <div id='iconV'></div>
+      <div id='list'></div>
+      <div id='grid'></div>
+      <div id='coverflow'>
+        <i class='view'></i>
+      </div>
+      <div id='settings'></div>
+      <div id='share'></div>
+      <input results='0' type='search'>
+    </div>
+  </div>
+  <div id='view'>
+    <div id='sidebar'>
+      <ul>
+        <li>
+          <span class='group'>
+            Favorites
+          </span>
+          <ul>
+            <li >
+              <i class='afiles'></i>
+              All My Files
+            </li>
+            <li>
+              <i class='airdrop'></i>
+              AirDrop
+            </li>
+            <li>
+              <i class='apps'></i>
+              Applications
+            </li>
+            <li>
+              <i class='desk'></i>
+              Desktop
+            </li>
+            <li>
+              <i class='docs'></i>
+              Documents
+            </li>
+            <li>
+              <i class='downs'></i>
+              Downloads
+            </li>
+            <li>
+              <i class='mov'></i>
+              Movies
+            </li>
+            <li>
+              <i class='music'></i>
+              Music
+            </li>
+            <li>
+              <i class='pic'></i>
+              Pictures
+            </li>
+          </ul>
+        </li>
+        <li>
+          <span class='group'>
+            Shared
+          </span>
+        </li>
+      </ul>
+    </div>
+
+        <div id='finderContent'>
+
+
+          <div id="folder1" ondblclick="openDesktopFolder()" onClick="highlightFolder1()" class='folder'>
+        <img id="folderPic1" src="images/folder.png">
+        <span id='folderText1'>
+          Desktop
+        </span>
+      </div>
+      <div id="folder2" ondblclick="openDocumentFolder()" onClick="highlightFolder2()" class='folder'>
+        <img id="folderPic2" src="images/folder.png">
+        <span id='folderText2'>
+          Documents
+        </span>
+      </div>
+      <div id="folder3" ondblclick="openDownloadsFolder()" onClick="highlightFolder3()" class='folder'>
+        <img id="folderPic3" src="images/folder.png">
+        <span id='folderText3'>
+          Downloads
+        </span>
+      </div>
+      <div id="folder4" ondblclick="openMoviesFolder()" onClick="highlightFolder4()" class='folder'>
+        <img id="folderPic4" src="images/folder.png">
+        <span id='folderText4'>
+          Movies
+        </span>
+      </div>
+      <div id="folder5" ondblclick="openMusicFolder()" onClick="highlightFolder5()" class='folder'>
+        <img id="folderPic5" src="images/folder.png">
+        <span id='folderText5'>
+          Music
+        </span>
+      </div>
+      <div id="folder6" ondblclick="openPicturesFolder()" onClick="highlightFolder6()" class='folder'>
+        <img id="folderPic6" src="images/folder.png">
+        <span id='folderText6'>
+          Pictures
+        </span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div id ="container" class="container">
+    <div class="window">
+        <div class="handle">
+            <div class="buttons">
+                <button class="close">
+                  <a class="closebutton"><img onclick="closeTerminal()" src="images/x.png"></a>
+                </button>
+                <button class="minimize">
+                  <a class="minimizebutton"><img src="images/minus.png"></a>
+                </button>
+                <button class="maximize">
+                  <a class="maximizebutton"><img src="images/plus.png"></a>
+                </button>
+            </div>
+            <span class="title">adrianacker bash</span>
+        </div>
+        <div class="terminal"></div>
+    </div>
+</div>
+
+
+
+
+<div id="browser" class="clear">
+
+  <div class="buttons">
+      <div class="close2">
+        <a onclick="closeChrome()" class="closebutton2" href="#"><span><strong>&thinsp;x</strong></span></a>
+        <!-- close button link -->
+      </div>
+      <div class="minimize">
+        <a class="minimizebutton" href="#"><span><strong>&thinsp;&ndash;</strong></span></a>
+        <!-- minimize button link -->
+      </div>
+      <div class="zoom">
+        <a class="zoombutton" href="#"><span><strong>&thinsp;+</strong></span></a>
+        <!-- zoom button link -->
+      </div>
+    </div>
+  
+  <!-- tabs -->
+  <ul class="tabs">
+    <li class="active">
+      <img src="images/rochester.png">
+      <span>UR Counselling</span>
+      <a class="close" href="https://www.rochester.edu/ucc/help/info/depression.html">×</a>
+    </li>
+  </ul>
+  
+  <!-- add tab -->
+  <a href="#" class="add"></a>
+  
+  <!-- bar -->
+  <div class="bar clear">
+    <ul>
+      <li><a class="icon-arrow-left" href="#"></a></li>
+      <li><a class="icon-arrow-right" href="#"></a></li>
+      <li><a class="icon-refresh" href="#"></a></li>
+    </ul>
+    <input id="searchbartext" placeholder="Search" value="issues.rochester.edu/incident-report/" type="text">
+    <ul class="drop">
+      <li>
+        <input id="panel" type="checkbox">
+        <label for="panel" class="icon-reorder"></label>
+      <ul>
+        <li><a href="#">New Tab <span>⌘T</span></a></li>
+        <li><a href="#">New Window <span>⌘N</span></a></li>
+        <li><a href="#">New Incognito Window <span>⇧⌘N</span></a></li>
+        <li><a href="#">Bookmarks <span>▶</span></a></li>
+        <li class="slice"></li>
+        <li><a href="#">Edit</a></li>
+        <li class="slice"></li>
+        <li><a href="#">Zoom</a></li>
+        <li class="slice"></li>
+        <li><a href="#">Save Page As.. <span>⌘S</span></a></li>
+        <li><a href="#">Find.. <span>⌘F</span></a></li>
+        <li><a href="#">Print.. <span>⌘P</span></a></li>
+        <li><a href="#">Tools <span>▶</span></a></li>
+        <li class="slice"></li>
+        <li><a href="#">History <span>⌘Y</span></a></li>
+        <li><a href="#">Downloads <span>⇧⌘J</span></a></li>
+        <li class="slice"></li>
+        <li><a href="#">Signed in as adrian.acker@gmail.com</a></li>
+        <br>
+        <li class="slice"></li>
+        <li><a href="#">Settings <span>⌘S</span></a></li>
+        <li><a href="#">About Google Chrome</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <!-- bookmark -->
+  <div class="bookmark">
+    <ul>
+      <li>
+        <a onclick="openHome()" href="http://www.blackjackapprenticeship.com/resources/how-to-count-cards/">
+          <img src="images/cards.png">
+          <span>How To Count Cards</span></a></li>
+      <li>
+        <a onclick="openSoundcloud()" href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/57194205&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
+          <img src="images/soundcloud.png">
+          <span>lovefuck</span></a></li>
+      <li>
+        <a onclick="openYoutube()" href="https://www.youtube.com/embed/idtE7MkHlW0?rel=0&iv_load_policy=3">
+          <img src="http://s.ytimg.com/yts/img/favicon-vfldLzJxy.ico">
+          <span>Where Is My Mind? 1988 London</span></a></li>
+      <li>
+        <a onclick="openSheLovesMeNot()" href="http://ibrahimitani.com/shelovesmenot">
+          <img src="http://image005.flaticon.com/1/png/128/11/11094.png">
+          <span>she loves me not</span></a></li>
+      <li>
+        <a onclick="openWiki()" href="http://www.wikihow.com/Make-a-Long-Distance-Relationship-Work">
+          <img src="images/wiki.png">
+          <span>Make Long Distance Work</span></a></li>    
+
+    </ul>
+  </div>
+
+  <div class="page">
+    <iframe width="100%" height="100%" src="https://www.rochester.edu/ucc/help/info/depression.html" frameborder="0"></iframe>
+  </div>
+</div>
+
+
+
+
+<div id="imessage-background" class="imessage-background">
+
+
+
+      <div class="buttons3">
+      <div class="close3">
+        <a onclick="" class="closebutton3"><span><img onclick="closeMessages()" src="images/x.png"></span></a>
+      </div>
+      <div class="minimize3">
+        <a class="minimizebutton3"><span><img src="images/minus.png"></span></a>
+      </div>
+      <div class="zoom3">
+        <a class="zoombutton3"><span><img src="images/plus.png"></span></a>
+      </div>
+
+    </div>
+        <div class="toField" style="width: 500px; border-left: thin solid #b2b2b2;">
+              <input style="background: #707070; background-image: url('images/search2.png'); background-repeat: no-repeat; width: 175px; margin-top:27px; margin-left: -190px; margin-right:4px;" id="textField" name="textfield" placeholder=
+      "Search" type="text">
+
+      <span style="margin-top: 30px; margin-left:11px;"><span style="opacity:0.6;">To: &thinsp;</span> Sloan       <span style="margin-left:387px; margin-top: 7%; float: right; padding-bottom: 8px; color:#1972ed ">Details</span></span>
+
+    </div>
+
+
+
+
+
+
+    <div class="contacts" style="border-right: 1px solid #aaaaaa;">
+              <img style="margin-left: 196px;" src="images/border.png">
+
+
+
+      <div class="contact" style="background:#1972ed; color: white; margin-top:-21px; padding-top: 6px;">
+
+        <img style="margin-left:10px;"src="images/sloanContactPic.png">
+        <div class ="contact-title"><b>Sloan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-size: 12px;">7:47 PM</span></div>
+
+        <br>
+        <div style="color: white;" class="contact-last-message"><span >call me back?</span></div>
+      </div>
+
+      <div class="contact">
+        <img style="margin-left:10px;" src="images/contactpif.png">
+        <div class ="contact-title"><b>Petr Ovak </b><span style="font-size: 12px; color:#6f6f6f">6:53 PM</span></div>
+        <br>
+        <div class="contact-last-message"><span >can u facetime?</span></div>
+      </div>
+
+      <div class="contact">
+        <img style="margin-left:10px;" src="images/contact3.png">
+        <div class ="contact-title"><b>Oscar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-size: 12px; color:#6f6f6f">6:41 PM</span></div>
+        <br>
+        <div class="contact-last-message"><span >did u check ur MT2 mark?</span></div>
+      </div>
+
+      <div class="contact">
+        <img style="margin-left:10px;" src="images/contact2.png">
+        <div class ="contact-title"><b>Andy T &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-size: 12px; color:#6f6f6f">6:38 PM</span></div>
+        <br>
+        <div class="contact-last-message"><span >dinner @ 7pm?</span></div>
+      </div>
+
+      <div class="contact">
+        <img style="margin-left:10px;" src="images/contactpif.png">
+        <div class ="contact-title"><b>Dad &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-size: 12px; color:#6f6f6f">6:13 PM</span></div>
+        <br>
+        <div class="contact-last-message"><span >u were supposed to call at 6!</span></div>
+      </div>
+      <div class="contact">
+        <img style="margin-left:10px;" src="images/contact1.png">
+        <div class ="contact-title"><b>I I &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-size: 12px; color:#6f6f6f">Yesterday</span></div>
+        <br>
+        <div class="contact-last-message"><span >what were u trying to tell me?</span></div>
+      </div>
+        
+
+     </div> 
+    <form onload="scrollToBottom()" class="chat">
+      <span></span>
+      <div class="messages" id="adobewordpress">
+        <div class="message">
+          <div class="myMessage">
+            <p>They had all this stuff setup today to welcome us back from break. they had this maze setup, reminded me of that time you took us to the corn maze haha</p>
+            <date><b>Adrian Acker</b> 08.01.2016 14:30:7</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="fromThem">
+            <p>no way, that feels like so long ago.</p>
+            <date><b>Sloan</b> 08.01.2016 14:31:22</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>what are you up to today?</p>
+            <date><b>Adrian Acker</b> 08.01.2016 14:32:10</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="fromThem">
+            <p>Just have to get all my books and run some errands. </p>
+            <date><b>Sloan</b> 08.01.2016 14:44:30</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>did u get into that film elective? what else are you taking? </p>
+            <date><b>Adrian Acker</b> 08.01.2016 14:45:13</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="fromThem">
+            <p>yea sorry just ran into a friend in the bookstore talk later</p>
+            <date><b>Sloan</b> 08.01.2016 14:47:34</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>kk</p>
+            <date><b>Adrian Acker</b> 08.01.2016 14:48:13</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>i can’t believe we’re already halfway through our first year, it’s gone by so quick. </p>
+            <date><b>Adrian Acker</b> 22.01.2016 11:48:13</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="fromThem">
+            <p>yea I know, I don’t want to go back home for the summer..</p>
+            <date><b>Sloan</b> 22.01.2016 13:42:34</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>I thought you said you were coming home </p>
+            <date><b>Adrian Acker</b> 22.01.2016 13:48:43</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="fromThem">
+            <p>I know but there’s this really good research position that I want to apply to and I might just take a few summer courses.</p>
+            <date><b>Sloan</b> 22.01.2016 13:56:19</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>Oh ok, maybe I can come visit you?</p>
+            <date><b>Adrian Acker</b> 22.01.2016 14:00:29</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p><a style="color: white; text-decoration: underline;" href="https://vine.co/v/eeZ7WTZheZw" target="_blank">https://vine.co/v/eeZ7WTZheZw</a></p>
+            <date><b>Adrian Acker</b> 14.02.2016 9:33:39</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p><a style="color: white; text-decoration: underline;" href="https://vine.co/v/OL6E2rXIaxJ" target="_blank">https://vine.co/v/OL6E2rXIaxJ</a></p>
+            <date><b>Adrian Acker</b> 14.02.2016 10:20:18</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="fromThem">
+            <p>lol</p>
+            <date><b>Sloan</b> 16.02.2016 19:26:19</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>is everything okay? I feel like you’ve been quiet</p>
+            <date><b>Adrian Acker</b> 26.02.2016 20:03:19</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="fromThem">
+            <p>no im fine just busy </p>
+            <date><b>Sloan</b> 26.02.2016 22:12:24</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>yea I get that, do you also have midterms this week? </p>
+            <date><b>Adrian Acker</b> 26.02.2016 22:24:01</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="fromThem">
+            <p>Yup one tomorrow and then another on Friday. &amp; I have to deal with this whole thing with Lisa. </p>
+            <date><b>Sloan</b> 26.02.2016 22:25:57</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>Wait what happened with Lisa?</p>
+            <date><b>Adrian Acker</b> 26.02.2016 23:02:31</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="fromThem">
+            <p>Remember I told you, she had that whole breakdown and know she’s moving out and moving back home. Fuck, I’m not exited who knows who’ll move into her room.</p>
+            <date><b>Sloan</b> 26.02.2016 08:22:32</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>I mean won’t you have a little time before anyone else moves in? At least she’ll be gone and maybe your new roommate will be better..?</p>
+            <date><b>Adrian Acker</b> 26.02.2016 10:02:33</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="fromThem">
+            <p>Yea idk, anyways I got to get back to studying</p>
+            <date><b>Sloan</b> 26.02.2016 13:17:42</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>all right, good luck studying! call me before bed?</p>
+            <date><b>Adrian Acker</b> 26.02.2016 13:20:17</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>how’d your test go?</p>
+            <date><b>Adrian Acker</b> 30.02.2016 10:07:27</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="fromThem">
+            <p>sorry yea both my tests went well</p>
+            <date><b>Sloan</b> 01.03.2016 13:17:42</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>do you want to talk?</p>
+            <date><b>Adrian Acker</b> 08.03.2016 20:07:27</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="fromThem">
+            <p>i’m just about to head out with a few girls on my floor!</p>
+            <date><b>Sloan</b> 08.03.2016 20:12:42</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>oh okay all good, where are you going?</p>
+            <date><b>Adrian Acker</b> 08.03.2016 20:41:10</date>
+          </div>
+        </div>
+
+
+        <div class="message">
+          <div class="myMessage">
+            <p>??</p>
+            <date><b>Adrian Acker</b> 08.03.2016 23:19:12</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="fromThem">
+            <p>just at this party, my phone’s about to die</p>
+            <date><b>Sloan</b> 09.03.2016 01:03:18</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>have fun! maybe talk tomorrow? </p>
+            <date><b>Adrian Acker</b> 09.03.2016 01:04:33</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>hi, I haven’t heard from you in a while how’ve you been?</p>
+            <date><b>Adrian Acker</b> 19.03.2016 09:23:21</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="fromThem">
+            <p>fine</p>
+            <date><b>Sloan</b> 20.03.2016 13:03:18</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>did u get my calls?</p>
+            <date><b>Adrian Acker</b> 31.03.2016 17:53:27</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>are you liking that film elective? how’s your new roommate? are you still doing all that stuff with the social justice club? I tried facetiming you yesterday and twice today you must be busy. do you have anytime to talk today?</p>
+            <date><b>Adrian Acker</b> 01.04.2016 12:19:31</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="fromThem">
+            <p>sure, i have something to talk to you about. i’ll call you later. </p>
+            <date><b>Sloan</b> 01.04.2016 14:08:21</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>what time are u thinking? I’ll make sure to be free!</p>
+            <date><b>Adrian Acker</b> 01.04.2016 14:09:10</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="myMessage">
+            <p>hello?</p>
+            <date><b>Adrian Acker</b> 01.04.2016 15:22:50</date>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="fromThem">
+            <p>idk, like 7 your time</p>
+            <date><b>Sloan</b> 01.04.2016 16:38:51</date>
+          </div>
+        </div>
+
+       <div class="message">
+          <div class="myMessage">
+            <p>can’t wait, talk soon!</p>
+            <date><b>Adrian Acker</b> 01.04.2016 16:42:30</date>
+          </div>
+        </div>
+
+
+       <div class="message">
+          <div class="myMessage">
+            <p>can you still talk?</p>
+            <date><b>Adrian Acker</b> 01.04.2016 19:02:43</date>
+          </div>
+        </div>
+
+      <div class="message">
+          <div class="myMessage">
+            <p>Sloan…?</p>
+            <date><b>Adrian Acker</b> 01.04.2016 19:21:23</date>
+          </div>
+        </div>
+
+      <div class="message">
+          <div class="fromThem">
+            <p>sorry give me 5 minutes </p>
+            <date><b>Sloan</b> 01.04.2016 19:23:57</date>
+          </div>
+        </div>
+
+      <div class="message">
+          <div class="myMessage">
+            <p>why’d you hang up?</p>
+            <date><b>Adrian Acker</b> 01.04.2016 19:41:12</date>
+          </div>
+        </div>
+
+      <div class="message">
+          <div class="myMessage">
+            <p>i’m sorry, i just really miss you</p>
+            <date><b>Adrian Acker</b> 01.04.2016 19:42:32</date>
+          </div>
+        </div>
+
+      <div class="message">
+          <div class="myMessage">
+            <p>pls call me back</p>
+            <date><b>Adrian Acker</b> 01.04.2016 19:47:02</date>
+          </div>
+        </div>
+
+      </div>
+      <input type="text" value="i love you" placeholder="iMessage">
+      <input type="submit" value="Send">
+    </form>
+ 
+</div>
+
+<div style="display: none" id="dialogue-container">
+<div class="dialogue">
+  <div class="titlebar"></div>
+  <div class="body4"><img src="http://cnet4.cbsistatic.com/hub/i/r/2013/02/04/5e54fcb6-6de8-11e3-913e-14feb5ca9861/resize/270xauto/5dc66f7513da9d66450373bebbe2fe42/ProblemReporterIconX.png" class="icon5"/></div>
+  <div class="warning">Are you sure you want to permanantly erase the items in Trash?</div>
+  <div class="hint">You can't undo this action.</div>
+  <div class="actions4">
+    <input onclick="closeDialogue()" style="padding: 3px;" type="button" value="Cancel" class="btn"/>
+    <input onclick="eraseTrash()" style="padding-top: 3px; padding-bottom: 3px; padding-right: 9px; padding-left: 9px;" type="button" value="Empty Trash" class="btn confirm"/>
+  </div>
+</div>
+</div>
+
+
+
+<div id='trash-can'>
+  <div id='toolbar'>
+    <div id='traffic-light'>
+      <div onclick="closeTrash();" id='red'></div>
+      <div id='yellow'></div>
+      <div id='green'></div>
+    </div>
+    <div id='trash-icon'>
+      <i></i>
+      Trash
+    </div>
+    <div id='actions'>
+      <div id='back'></div>
+      <div id='next'></div>
+      <div id='iconV'></div>
+      <div id='list'></div>
+      <div id='grid'></div>
+      <div id='coverflow'>
+        <i class='view'></i>
+      </div>
+      <div id='settings'></div>
+      <div id='share'></div>
+      <input results='0' type='search'>
+    </div>
+  </div>
+  <div id='view'>
+    <div id='sidebar'>
+      <ul>
+        <li>
+          <span class='group'>
+            Favorites
+          </span>
+          <ul>
+            <li class='current_page'>
+              <i class='afiles'></i>
+              All My Files
+            </li>
+            <li>
+              <i class='airdrop'></i>
+              AirDrop
+            </li>
+            <li>
+              <i class='apps'></i>
+              Applications
+            </li>
+            <li>
+              <i class='desk'></i>
+              Desktop
+            </li>
+            <li>
+              <i class='docs'></i>
+              Documents
+            </li>
+            <li>
+              <i class='downs'></i>
+              Downloads
+            </li>
+            <li>
+              <i class='mov'></i>
+              Movies
+            </li>
+            <li>
+              <i class='music'></i>
+              Music
+            </li>
+            <li>
+              <i class='pic'></i>
+              Pictures
+            </li>
+          </ul>
+        </li>
+        <li>
+          <span class='group'>
+            Shared
+          </span>
+        </li>
+      </ul>
+    </div>
+
+
+    <div id='content'>
+      <div style="width:637px; height:300px; display: none;" onClick = "unHighlightTextFile()"> </div>
+      <div id="top-header"><b style="color: #4c4c4c;margin-right:520px; height: 40px; margin-left:15px;   opacity: 1;">Trash</b> <button onClick="openEmptyDialog()" style="width:45px;">Empty</button></div>
+
+      <div id="trashFile" onclick="highlightTextFile3()" ondblclick="openTextFile()" style="padding:8px; margin-top: 40px; margin-left:90px;"class='file'>
+        <img id="textIcon" onclick="highlightTextFile3()" ondblclick="openTextFile()" style="padding:8px; margin-left:37px; margin-bottom: 2px;" src="images/textfile.png">
+        <br>
+        <span id="textFileName">
+          whatiwantedtotellher.txt 
+        </span>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+<div class="window2" id="window2">
+  <div class="titlebar">
+    <div class="buttons">
+      <div class="close4">
+        <a onclick="hide('window2')" class="closebutton4" href="#"><span><strong>x</strong></span></a>
+        <!-- close button link -->
+      </div>
+      <div class="minimize4">
+        <a onclick="minimize('window2')" class="minimizebutton4" href="#"><span><strong>&ndash;</strong></span></a>
+        <!-- minimize button link -->
+      </div>
+      <div class="zoom4">
+        <a onclick="zoom('window2')"class="zoombutton4" href="#"><span><strong>+</strong></span></a>
+        <!-- zoom button link -->
+      </div>
+    </div>
+    whatiwantedtotellher.txt
+    <!-- window title -->
+  </div>
+  <div class="content">
+    <textarea id="textarea" placeholder="">I can’t quite remember our first interaction. In my imagination, we met amidst a crowd. It was at The Pixies Show at the Town and Country club in London in 1988. As Joey Santiago strums his guitar from E to C minor and Black Francis utters the lyrics to “Where is Mind” I’m entranced not only by the music. Sloane’s sharp green eyes and secret smile made me nervous. Scholarly examinations aside, I was typically at one with my nerves. 
+
+The reality of our first encounter may be imagined but the relationship that came to be is not.
+ 
+I found tiny notes tucked in my blazer, lunchbox and locker. Soon enough the notes 
+turned into texts. Texts into phone calls that always ran long. She taught me to love 
+and be loved. Discovering each other through tears, confusion and discomfort. Being 
+at her side was intoxicating. I had never felt so ‘out-of-touch’ with reality. 
+
+I taught her the few Italian words I could remember. We’d pass the time by repeatedly stumbling over the syllables, cursing at each other. Profanities I’d poorly memorized by overhearing my uncle mutter them to his wife. Her bright smile illuminating his face was infuriating. I pretended not to notice. She taught me to embrace defeat.  She was confused when I told her that sometimes I wished I stayed inside my mother. She taught me to trust that someone could love me.   
+
+I felt complete. 
+
+Not to say I was ever deprived of care, I would be a liar if I said my parents ever faltered in their compassion. Her gentle touch would awaken me every morning. She’d lean down and kiss my lifeless face. That summer my mother lost her fight. Her tender embrace no longer welcomed me from unconsciousness.
+ 
+She told me to get in the car. I hated surprises. 11-foot high maize stood between the exit and us. We got lost. Her skin was as soft as it looked. I touched her lips to see if she’d pull away. I leaned in eyes wide open, I didn’t trust her not to leave me alone standing there amongst the corn.
+
+67 days ago, we said our goodbyes promising to each other we’d make an effort to incorporate one another in our new lives. The post it notes temporary reminders until we met next. I promise I tried. She taught me the fragility of the human soul; the lack of reciprocation has left me short changed. I can’t quite remember our first interaction but I do remember our last.
+</textarea>
+    <!-- window content -->
+  </div>
+</div>
+
+    <div class="facetime" id="facetime">
+        <div id="facetime-frame">
+            <div class="buttons">
+                <div class="close4">
+                    <a onclick="closeFacetime()" class="closebutton4" href="#" onclick=
+                    "hide('window2')"><span><strong>&thinsp;&thinsp;&thinsp;&thinsp;x</strong></span></a> 
+                    <!-- close button link -->
+                </div>
+                <div class="minimize4">
+                    <a class="minimizebutton4" href="#" onclick=
+                    "minimize('window2')"><span><strong>&thinsp;&thinsp;&thinsp;&thinsp;&ndash;</strong></span></a>
+                    <!-- minimize button link -->
+                </div>
+                <div class="zoom4">
+                    <a class="zoombutton4" href="#" onclick=
+                    "zoom('window2')"><span><strong>&thinsp;&thinsp;&thinsp;&thinsp;+</strong></span></a> 
+                    <!-- zoom button link -->
+                </div>
+            </div><br>
+            <br>
+            <span onClick="openVidFacetime()" id="vidButton">Video</span> 
+            <span onClick="openAudioFacetime()" id= "audioButton">Audio</span><br>
+            <br>
+            <input id="textField" name="textfield" placeholder=
+            "Enter a name, email, or number" type="text">
+
+  <div id="facetimeContacts" class="facetimeContacts">
+
+    <div style="height: 36px; padding-bottom: 8px; padding-top: 8px;" class="selected" id="facetimeContact">
+        <img style="float:left;width: 29px; margin-right:8px; margin-left:8px;" src="images/sloanContactPic.png">
+        <span id="facetimeContactTitle">
+        <span id="right-facetime-icon"></span>
+            <span style="margin-top:10px;">Sloan</span> 
+            <br>
+
+            <span id="facetime-icon"></span>
+            <span id="descriptionText">FaceTime - 7:32pm &nbsp;</span>
+
+        </span>
+
+        <br>
+        <hr>
+
+        <br>
+    </div>
+
+          <div class="selected" style="margin-top: 12px;" id="facetimeContact">
+        <img style="float:left;width: 29px; margin-right:8px; margin-left:8px;" src="images/unknownContact.png">
+        <span id="facetimeContactTitle">
+        <span id="right-facetime-icon"></span>
+            <span id="facetimeContactName">Dad</span> 
+            <br>
+
+            <span id="facetime-icon"></span>
+            <span id="descriptionText">FaceTime - 7:15pm &nbsp;</span>
+
+        </span>
+        <br>
+        <hr>
+    </div>
+
+            <div class="selected" id="facetimeContact">
+        <img style="float:left;width: 29px; margin-right:8px; margin-left:8px;" src="images/unknownContact.png">
+        <span id="facetimeContactTitle">
+        <span id="right-facetime-icon"></span>
+            <span id="facetimeContactName">Dad</span> 
+            <br>
+
+            <span id="facetime-icon"></span>
+            <span id="descriptionText">FaceTime - 7:05pm &nbsp;</span>
+
+
+        </span>
+        <br>
+        <hr>
+ 
+    </div>
+
+        <div class="selected" id="facetimeContact">
+        <img style="float:left;width: 29px; margin-right:8px; margin-left:8px;" src="images/unknownContact.png">
+        <span id="facetimeContactTitle">
+        <span id="right-facetime-icon"></span>
+            <span id="facetimeContactName">Dad</span> 
+            <br>
+
+            <span id="facetime-icon"></span>
+            <span id="descriptionText">FaceTime - 6:50pm &nbsp;</span>
+
+        </span>
+        <br>
+        <hr>
+
+    </div>
+
+        <div class="selected" id="facetimeContact">
+        <img style="float:left;width: 29px; margin-right:8px; margin-left:8px;" src="images/sloanContactPic.png">
+        <span id="facetimeContactTitle">
+        <span id="right-facetime-icon"></span>
+
+            <span style="margin-top:10px;">Sloan</span> 
+            <br>
+
+            <span id="facetime-icon"></span>
+            <span id="descriptionText">FaceTime - 1:03pm &nbsp;</span>
+
+        </span>
+        <br>
+        <hr>
+
+    </div>
+
+        <div class="selected" style="height: 41px;" id="facetimeContact">
+        <img style="float:left;width: 29px; margin-right:8px; margin-left:8px;" src="images/sloanContactPic.png">
+        <span id="facetimeContactTitle">
+        <span id="right-facetime-icon"></span>
+            <span style="margin-top:10px;">Sloan</span> 
+            <br>
+
+            <span id="facetime-icon"></span>
+            <span id="descriptionText">FaceTime - 9:25am &nbsp;</span>
+
+
+        </span>
+        <br>
+        <hr>
+        
+
+        <br>
+    </div>
+
+</div>
+
+  <div style="display: none" id="facetimeContacts2" class="facetimeContacts">
+
+    <div style="height: 36px; padding-bottom: 8px; padding-top: 8px;" class="selected" id="facetimeContact">
+        <img style="float:left;width: 29px; margin-right:8px; margin-left:8px;" src="images/unknownContact.png">
+        <span id="facetimeContactTitle">
+        <span id="right-facetime-audio-icon"></span>
+            <span id="facetimeContactName" style="margin-top:10px;">Petr Ovak</span> 
+            <br>
+
+            <span id="facetime-icon-audio"></span>
+            <span id="descriptionText">FaceTime - 7:20pm &nbsp;</span>
+
+        </span>
+
+        <br>
+        <hr>
+
+        <br>
+    </div>
+
+          <div class="selected" style="margin-top: 12px;" id="facetimeContact">
+        <img style="float:left;width: 29px; margin-right:8px; margin-left:8px;" src="images/unknownContact.png">
+        <span id="facetimeContactTitle">
+        <span id="right-facetime-audio-icon"></span>
+            <span id="facetimeContactName">Dad</span> 
+            <br>
+
+            <span id="facetime-icon-audio"></span>
+            <span id="descriptionText">FaceTime - 7:17pm &nbsp;</span>
+
+        </span>
+        <br>
+        <hr>
+    </div>
+
+        <div class="selected" id="facetimeContact">
+        <img style="float:left;width: 29px; margin-right:8px; margin-left:8px;" src="images/unknownContact.png">
+        <span id="facetimeContactTitle">
+        <span id="right-facetime-audio-icon"></span>
+            <span id="facetimeContactName">Dad</span> 
+            <br>
+
+            <span id="facetime-icon-audio"></span>
+            <span id="descriptionText">FaceTime - 7:08pm &nbsp;</span>
+
+        </span>
+        <br>
+        <hr>
+
+    </div>
+
+        <div class="selected" id="facetimeContact">
+        <img style="float:left;width: 29px; margin-right:8px; margin-left:8px;" src="images/sloanContactPic.png">
+        <span id="facetimeContactTitle">
+        <span id="right-facetime-audio-icon"></span>
+
+            <span style="margin-top:10px;">Sloan</span> 
+            <br>
+
+            <span id="facetime-icon-audio"></span>
+            <span id="descriptionText">FaceTime - 1:00pm &nbsp;</span>
+
+        </span>
+        <br>
+        <hr>
+
+    </div>
+
+        <div class="selected" style="height: 41px;" id="facetimeContact">
+        <img style="float:left;width: 29px; margin-right:8px; margin-left:8px;" src="images/sloanContactPic.png">
+        <span id="facetimeContactTitle">
+        <span id="right-facetime-audio-icon"></span>
+            <span style="margin-top:10px;">Sloan</span> 
+            <br>
+
+            <span id="facetime-icon-audio"></span>
+            <span id="descriptionText">FaceTime - Yesterday &nbsp;</span>
+
+
+        </span>
+        <br>
+        <hr>
+        
+
+        <br>
+    </div>
+
+            <div class="selected" style="height: 41px;" id="facetimeContact">
+        <img style="float:left;width: 29px; margin-right:8px; margin-left:8px;" src="images/unknownContact.png">
+        <span id="facetimeContactTitle">
+        <span id="right-facetime-audio-icon"></span>
+            <span id="facetimeContactName" style="margin-top:10px;">Petr Ovak</span> 
+            <br>
+
+            <span id="facetime-icon-audio"></span>
+            <span id="descriptionText">FaceTime - Yesterday &nbsp;</span>
+
+
+        </span>
+        <br>
+        <hr>
+        
+
+        <br>
+    </div>
+
+            <div class="selected" style="height: 41px;" id="facetimeContact">
+        <img style="float:left;width: 29px; margin-right:8px; margin-left:8px;" src="images/sloanContactPic.png">
+        <span id="facetimeContactTitle">
+        <span id="right-facetime-audio-icon"></span>
+            <span style="margin-top:10px;">Sloan</span> 
+            <br>
+
+            <span id="facetime-icon-audio"></span>
+            <span id="descriptionText">FaceTime - Yesterday &nbsp;</span>
+
+
+        </span>
+        <br>
+        <hr>
+        
+
+        <br>
+    </div>
+
+
+
+</div>
+
+
+        </div>
+        <div id="webcam" style=
+        "width: 649px;opacity:0.7; border-left: 0.5px solid #b2b2b2; border-right: 0.5px solid #b0b0b0; border-radius: 3px;">
+        </div>
+
+    </div>
+
+
+
+        <div class="photobooth" id="photobooth">
+        <div id="photobooth-frame">
+            <div class="buttons">
+                <div class="close4">
+                    <a onclick="closePhotobooth()" class="closebutton4" href="#" onclick=
+                    "hide('window2')"><span><strong>&thinsp;x</strong></span></a> 
+                    <!-- close button link -->
+                </div>
+                <div class="minimize4">
+                    <a class="minimizebutton4" href="#" onclick=
+                    "minimize('window2')"><span><strong>&thinsp;&ndash;</strong></span></a>
+                    <!-- minimize button link -->
+                </div>
+                <div class="zoom4">
+                    <a class="zoombutton4" href="#" onclick=
+                    "zoom('window2')"><span style="margin-left:-1px;"><strong>&thinsp;+</strong></span></a> 
+                    <!-- zoom button link -->
+                </div>
+            </div>
+
+            <span style="opacity: 0.8; font-size: 13px; margin-left: 200px; padding-top: 3px;">Photo Booth</span>
+        </div>
+
+        <img style="margin-top:5px; height: 370px; width: 604px;" id="currentPic" src="images/preview-pic1.jpg">
+
+        <div id="preview-pics">
+
+        <span id="preview-pic1-close" class="p-active"></span>
+        <img onclick="selectPic(this.id)" id="preview-pic1" style="margin-top: 0px; margin-left: 5px;" src="images/photoboothPreview1.jpg" class="m-active">
+         
+        <span style="right: 80%;" id="preview-pic2-close" class="p-inactive"></span>
+        <img id="preview-pic2" style="margin-top: 0px; margin-left: -2px;" onclick="selectPic(this.id)" src="images/photoboothPreview2.jpg">
+        
+
+        <span style="right: 63%;" id="preview-pic3-close" class="p-inactive"></span>
+        <img onclick="selectPic(this.id)" id="preview-pic3" style="margin-top: 0px; margin-left: -2px;" src="images/photoboothPreview3.jpg">
+
+        <span style="right: 46%;" id="preview-pic4-close" class="p-inactive"></span>
+        <img onclick="selectPic(this.id)" id="preview-pic4" style="margin-top: 0px; margin-left: -2px;" src="images/photoboothPreview4.jpg">
+
+        <span style="right: 29%;" id="preview-pic5-close" class="p-inactive"></span>
+        <img onclick="selectPic(this.id)" id="preview-pic5" style="margin-top: 0px; margin-left: -2px;" src="images/photoboothPreview5.jpg">
+
+
+        </div>
+
+
+
+
+        <div id="photobooth-buttons">
+                  <img style="margin-right: 144px;" id="currentPic" src="images/camerabutton.png">
+                  <img id="currentPic" src="images/uploadbutton.png">
+        </div>  
+
+
+    </div>
+
+
+
+      <div id="filefile" style="margin-left: 750px; margin-top: 325px; padding:8px;"class='file'>
+        <img id="textIcon2" onClick = "highlightTextFile2()" ondblclick="openTextFile2()" style="padding:8px; margin-left:26px; margin-bottom: -8px;" src="images/textfileDesktop.png">
+        <br>
+        <span onClick = "highlightTextFile2()" ondblclick="openTextFile2()" id="textFileName2">
+          &lt;/3
+        </span>
+      </div>
+
+
+<div id="textFileWindow" onclick="checkTextHighlight()" style="left: 500px; margin-top:-400px; height:3000px;">
+
+
+      </div>
+
+<div class="window2" id="window3">
+  <div class="titlebar">
+    <div class="buttons">
+      <div class="close4">
+        <a onclick="closeTextFile2()" class="closebutton4" href="#"><span><strong>x</strong></span></a>
+        <!-- close button link -->
+      </div>
+      <div class="minimize4">
+        <a onclick="minimize('window3')" class="minimizebutton4" href="#"><span><strong>&ndash;</strong></span></a>
+        <!-- minimize button link -->
+      </div>
+      <div class="zoom4">
+        <a onclick="zoom('window3')"class="zoombutton4" href="#"><span><strong>+</strong></span></a>
+        <!-- zoom button link -->
+      </div>
+    </div>
+    &lt;/3.txt
+    <!-- window title -->
+  </div>
+  <div class="content">
+    <textarea id="textarea" placeholder="">
+sore,
+my heart grows,
+from loving, 
+you,
+
+sore,
+my body tends,
+when I wake up alone,
+
+sore,
+my mind edges,
+thinking about you.
+
+//
+
+your lips,
+I want to feel,
+wrinkle with mine,
+over time,
+as our bodies,
+grow old,
+as our hearts did,
+long before
+
+//
+
+what have i become,
+i don’t know what to do anymore,
+i don’t know what to say,
+i don’t know what this is anymore,
+the worst i’ve ever felt,
+i’m scared,
+alone,
+dependent,
+everything is worse at night,
+she’s gone.
+</textarea>
+    <!-- window content -->
+  </div>
+</div>
+
+
+
+
+    <nav>
+        <div class="icon2" tabindex="0"><label>Finder</label> <img  onclick="openFinder()" src=
+        "images/finder.png"></div>
+        <div class="icon2" tabindex="0"><label>Terminal</label> <img onclick="openTerminal()" src=
+        "images/terminal.png"></div>
+        <div class="icon2" tabindex="0"><label>Chrome</label> <img onclick="openChrome()" src=
+        "images/chrome.png"></div>
+        <div class="icon2" tabindex="0"><label>Messages</label> <img onclick="openMessages()" src=
+        "images/imessage.png"></div>
+        <div class="icon2" tabindex="0"><label>FaceTime</label> <img onclick="openFacetime()" src=
+        "images/facetime.png"></div>
+        <div class="icon2" tabindex="0"><label>Photo Booth</label> <img onclick="openPhotobooth()" src=
+        "images/photobooth.png"></div>
+        <hr>
+        <div class="icon2" id="trashIconFinder" tabindex="0"><label>Trash</label> <img onclick="openTrash()" src=
+        "http://creativebits.org/files/trash-osx.png"></div>
+    </nav>
+ 
+
+
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.webcam.js"></script>
+
+    <script type="text/javascript">
+    jQuery("#webcam").webcam({
+
+    width: 649,
+    height: 552,
+    mode: "callback",
+    swffile: "jscam_canvas_only.swf", // canvas only doesn't implement a jpeg encoder, so the file is much smaller
+
+    debug: function (type, string) {
+        // Write debug information to console.log() or a div, ...
+    },
+
+    onLoad: function () {
+    // Page load
+        var cams = webcam.getCameraList();
+        for(var i in cams) {
+            jQuery("#cams").append("<li>" + cams[i] + "</li>");
+        }
+    }
+});</script>
+
+
+        <script src="js/chrome.js"></script>
+        <script src="js/header.js"></script>
+        <script src="js/terminal.js"></script>
+        <script src="js/imessage.js"></script>
+        <script src="js/trash.js"></script>
+        <script src="js/textfile.js"></script>
+        <script src="js/finder.js"></script>
+        <script src="js/facetime.js"></script>
+        <script src="js/photobooth.js"></script>
+
+        <script src="js/prefixfree.min.js"></script>
+        <script src="js/index.js"></script>
+
+</body>
+</html>

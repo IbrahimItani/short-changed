@@ -1,0 +1,191 @@
+#facetime {
+  font-family: HelveticaNeue, 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
+	font-size: 14px;
+	margin-left: 400px;
+	margin-top: 27px;
+	position: relative;
+	color: white;
+	margin-right: auto;
+	display: none;
+}
+
+#facetime-frame {
+	border-radius: 3px 0px 0px 3px;
+	  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0.6;
+	background: black;
+	width: 220px;
+    height: 552px;
+}
+
+
+#vidButton {
+	border-radius: 3px 0px 0px 3px;
+	margin-left: 8px;
+	padding-right: 30px;
+	padding-left: 34px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	color:black;
+	background: white;
+	opacity: 0.8;
+	float: left;
+}
+
+#audioButton {
+	border-radius: 0px 3px 3px 0px;
+	padding-right: 34px;
+	padding-left: 30px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	color:white;
+	background: #888d8b;
+	opacity: 1.0;
+	float:right;
+	margin-right: 10px;
+	border-left: 2px solid #888d8b;
+}
+
+#textField {
+	color: white;
+	background: #323232;
+	opacity: 0.5;
+    background-image: url('../images/search.png');
+    background-position: 3px center;
+    background-repeat: no-repeat;
+    border: 1px solid #ccc;
+    
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    
+	padding: 2px;
+    text-indent: 20px;
+    
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 2s;
+    transition: all 0.2s;
+	width: 195px;
+	height: 17px;
+	margin-left: 9px;
+}
+
+#textField:focus {
+    background-position: 0px center;
+    text-indent: 16px;
+    border: 3px solid #ccc;
+    padding: 1px;
+}
+
+#facetimeContacts {
+	height: 56px;
+	width: 220px;
+	margin-right: 0px;
+	margin-top: 10px;
+	border-top: 1px solid rgb(50,50,50);
+}
+
+#facetimeContacts2 {
+	height: 56px;
+	width: 220px;
+	margin-right: 0px;
+	margin-top: 10px;
+	border-top: 1px solid rgb(50,50,50);
+}
+
+
+#facetimeContact {
+	margin-top: 0px;
+    margin-bottom: 7px;
+    margin-left: 0px;
+}
+
+#facetimeContact.active {
+		background: #a3a8a5;
+		padding-top: 7px;
+		margin-top: 0px;
+}
+
+#facetimeContact.active #facetimeContactTitle {
+	color: black;
+}
+
+#facetimeContact.active #descriptionText {
+	color: black;
+}
+
+#facetimeContact.active #facetimeContactName {
+	color: black;
+}
+
+#descriptionText {
+	height: 11px;
+	font-size: 10px; 
+	color: #D3D3D3;
+}
+
+#facetimeContactName {
+	margin-top:10px; 
+	color: red;
+}
+
+#facetimeContactTitle {
+	font-size: 13px;
+	color: white;
+	letter-spacing: 0.4px;
+	display:block; 
+	height: 38px;
+	left: 24px;
+}
+
+#facetime-icon {
+	content: url("../images/facetime-small.png");
+}
+
+#facetime-icon-audio {
+	content: url("../images/facetime-audio-small.png");
+}
+
+#facetimeContact.active #facetime-icon {
+	content: url("../images/facetime-small-active.png");
+}
+
+#facetimeContact.active #facetime-icon-audio{
+		content: url("../images/facetime-audio-small-active.png");
+
+}
+
+#right-facetime-icon {
+	float:right;
+	content: url("../images/right-facetime-icons.png");
+}
+
+#right-facetime-audio-icon {
+	float:right;
+	content: url("../images/right-facetime-audio-icons.png");
+}
+
+#facetimeContact.active #facetimeContactTitle #right-facetime-icon {
+	content: url("../images/right-facetime-icons-active.png");
+}
+
+
+#facetimeContact.active #facetimeContactTitle #right-facetime-audio-icon {
+	content: url("../images/right-facetime-audio-icons-active.png");
+}
+
+hr { 
+    display: block;
+    opacity: 0.3;
+    margin-top: -11px;
+    margin-bottom: 0px;
+    margin-left: 40px;
+    margin-right: 7px;
+    border-width: 1px;
+    color: #ccc;
+} 
